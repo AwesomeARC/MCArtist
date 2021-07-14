@@ -4,10 +4,10 @@ use image::{DynamicImage, GenericImageView};
 
 struct MatchingBlock { id: u8, dev: f32 }
 
-pub fn img_to_mc(image: &DynamicImage, block_list: &JsonValue)
+pub fn img_to_mc(img: &DynamicImage, block_list: &JsonValue)
     -> Result< Vec<Vec<u8>>, Box<dyn Error> > {
 
-    let (width, height) = image.dimensions();
+    let (width, height) = img.dimensions();
 
     let width = width as usize;
     let height = height as usize;
@@ -23,7 +23,7 @@ pub fn img_to_mc(image: &DynamicImage, block_list: &JsonValue)
 
     let mut closest_match: Option<MatchingBlock> = None;
 
-    for (i, pixel) in image.to_rgb8().pixels().enumerate() {
+    for (i, pixel) in img.to_rgb8().pixels().enumerate() {
 
         let px_red = pixel.0[0] as u8;
         let px_green = pixel.0[1] as u8;
