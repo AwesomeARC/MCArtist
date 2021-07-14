@@ -1,0 +1,41 @@
+name: mcartist
+version: "1.0"
+author: AwesomeARC
+about: Generates commands to convert an image to minecraft blocks
+args:
+  - coords:
+      short: c
+      long: coords
+      required: true
+      about: Sets the starting position of the image
+      takes_value: true
+      value_name: "[X],[Y],[Z]"
+
+  - width:
+      short: w
+      long: width
+      required: true
+      about: Sets the width of the resulting image
+      takes_value: true
+      value_name: NUMBER
+
+  - height:
+      short: h
+      long: height
+      required: true
+      about: Sets the height of the resulting image
+      takes_value: true
+      value_name: NUMBER
+
+  - output:
+      short: o
+      long: output
+      required: true
+      about: Path to file to which the commands are to be written
+      takes_value: true
+      value_name: FILE
+
+  - input:
+      about: Path to the image which is to be converted
+      required: true
+      index: 4
