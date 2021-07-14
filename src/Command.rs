@@ -1,27 +1,32 @@
-pub mod Command {
+mod Command {
 
-    struct Fill {
+    pub struct Fill {
 
         coords1: (i32, u8, i32),
         coords2: (i32, u8, i32),
-        block_name: str
+        block_name: String
 
     }
 
     impl Fill {
 
-        fn new(coords1: (u32, u8, u32), coords2: (u32, u8, u32), block_name: str) {
+        fn new(coords1: (i32, u8, i32),
+               coords2: (i32, u8, i32),
+               block_name: &str) -> Fill {
 
-            Fill { coords1, coords2, block_name }
+            Fill {
+                coords1, coords2,
+                block_name: String::from(block_name)
+            }
 
         }
 
-        fn to_string(&self) {
+        fn to_string(&self) -> String {
 
             format!("/fill {} {} {} {} {} {} {}",
-                coords1.0, coords1.1, coords1.2,
-                coords2.0, coords2.1, coords2.2,
-                block_name
+                self.coords1.0, self.coords1.1, self.coords1.2,
+                self.coords2.0, self.coords2.1, self.coords2.2,
+                self.block_name
             )
 
         }
@@ -29,26 +34,29 @@ pub mod Command {
     }
 
 
-    struct SetBlock {
+    pub struct SetBlock {
 
         coords: (i32, u8, i32),
-        block_name: str
+        block_name: String
 
     }
 
     impl SetBlock {
 
-        fn new(coords: (u32, u8, u32), block_name: str) {
+        fn new(coords: (i32, u8, i32), block_name: &str) -> SetBlock {
 
-            SetBlock { coords, block_name }
+            SetBlock {
+                coords,
+                block_name: String::from(block_name)
+            }
 
         }
 
-        fn to_string(&self) {
+        fn to_string(&self) -> String {
 
             format!("/setblock {} {} {} {}",
-                coords.0, coords.1, coords.2,
-                block_name
+                self.coords.0, self.coords.1, self.coords.2,
+                self.block_name
             )
 
         }
