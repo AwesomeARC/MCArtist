@@ -30,7 +30,6 @@ args:
   - output:
       short: o
       long: output
-      required: true
       about: Path to file to which the commands are to be written
       takes_value: true
       value_name: FILE
