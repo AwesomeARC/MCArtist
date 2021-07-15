@@ -1,5 +1,5 @@
 name: mcartist
-version: "1.0"
+version: "1.0.0"
 author: AwesomeARC
 about: Generates commands to convert an image to minecraft blocks
 args:
@@ -34,7 +34,12 @@ args:
       takes_value: true
       value_name: FILE
 
+  - translucent:
+      short: t
+      long: translucent
+      about: Whether translucent blocks should be included
+
   - input:
       about: Path to the image which is to be converted
       required: true
-      index: 4
+      index: 1
