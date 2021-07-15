@@ -113,9 +113,9 @@ pub fn blocks_to_commands(
             if block_index == 0 { continue }
 
             let new_coords: Coords = (
-                coords.0 + i as i32,
+                coords.0 + j as i32,
                 coords.1,
-                coords.2 + j as i32
+                coords.2 + i as i32
             );
 
             command_list.push(SetBlock::new(new_coords,

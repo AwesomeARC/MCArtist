@@ -1,10 +1,7 @@
 use std::path::Path;
 use std::error::Error;
 use std::io::ErrorKind;
-use image::{
-    DynamicImage,
-    imageops::FilterType
-};
+use image::{DynamicImage, GenericImageView, imageops::FilterType};
 
 pub fn read_image(image_path: &Path, width: u32, height: u32)
     -> Result<DynamicImage, Box<dyn Error>> {
@@ -23,9 +20,11 @@ pub fn read_image(image_path: &Path, width: u32, height: u32)
 
     }
 
-    let img = image::open(image_path)?
-        .resize(width, height, FilterType::Gaussian)
-        .fliph();
+    let mut img = image::open(image_path)?;
+
+    if !(width == img.dimensions().0) || !(height == img.dimensions().1){
+        img = img.resize(width, height, FilterType::Gaussian);
+    }
 
     Ok(img)
 

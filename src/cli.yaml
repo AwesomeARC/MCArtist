@@ -9,7 +9,7 @@ args:
       short: c
       long: coords
       required: true
-      about: Sets the starting position of the image
+      about: Sets the starting position of the image (top-left corner)
       takes_value: true
       value_name: "[X],[Y],[Z]"
 
