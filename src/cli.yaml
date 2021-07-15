@@ -2,6 +2,8 @@ name: mcartist
 version: "1.0.0"
 author: AwesomeARC
 about: Generates commands to convert an image to minecraft blocks
+settings:
+  - AllowLeadingHyphen
 args:
   - coords:
       short: c
