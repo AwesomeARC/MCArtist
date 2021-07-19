@@ -278,7 +278,7 @@ checksum = "7fb9b38af92608140b86b693604b9ffcc5824240a484d1ecd4795bacb2fe88f3"
 
 [[package]]
 name = "mcartist"
-version = "2.0.0-aternos"
+version = "2.0.0"
 dependencies = [
  "bakery",
  "clap",
