@@ -1,0 +1,13 @@
+[package]
+name = "bakery"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+name = "bakery"
+path = "src/lib.rs"
+
+[dependencies]
+image = "0.23.14"
+json = "0.12.4"
+

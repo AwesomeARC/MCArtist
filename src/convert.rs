@@ -44,10 +44,12 @@ pub fn img_to_mc(img: &DynamicImage, block_list: &JsonValue, translucent: bool)
             // Skip testing with air
             if id == 0 { continue }
 
-            let blk_red = block["r"].as_u8().unwrap();
-            let blk_green = block["g"].as_u8().unwrap();
-            let blk_blue = block["b"].as_u8().unwrap();
-            let blk_alpha = block["a"].as_u8().unwrap();
+            // Keep #000000ff (pure black) as
+            // fallback in case something goes wrong
+            let blk_red = block["r"].as_u8().unwrap_or(0);
+            let blk_green = block["g"].as_u8().unwrap_or(0);
+            let blk_blue = block["b"].as_u8().unwrap_or(0);
+            let blk_alpha = block["a"].as_u8().unwrap_or(255);
 
             if !translucent && blk_alpha < 255 { continue; }
 

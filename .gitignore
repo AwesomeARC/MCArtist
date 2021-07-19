@@ -1,3 +1,2 @@
 target
-src/bakery
-!src/bakery/baked_blocks.json
+src/bakery/target

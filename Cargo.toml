@@ -11,3 +11,7 @@ json = "0.12.4"
 num-integer = "0.1.44"
 clap = { version = "3.0.0-beta.2", features = ["yaml"] }
 itertools = "0.10.0"
+
+[build-dependencies]
+bakery = { path = "./src/bakery" }
+
