@@ -28,13 +28,4 @@ impl SetBlock {
 
     }
 
-    pub fn to_aternos_string(&self) -> String {
-
-        format!("consoleStream.sendCommand(\"setblock {} {} {} {}\");",
-            self.coords.0, self.coords.1, self.coords.2,
-            self.block_name
-        )
-
-    }
-
 }
