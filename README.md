@@ -3,11 +3,17 @@
 
 # Introduction
 
-MCArtist is a MineCraft art generator witten in Rust. Given an image, it converts the image to a matrix of Minecraft blocks as per the width and height speicified by the user, where each block closely resembles each pixel of the image.
+MCArtist is a Minecraft pixel art generator witten in Rust. Given an image, it converts the image to a matrix of Minecraft blocks as per the width and height speicified by the user, where each block closely resembles each pixel of the image. Each block texture has been carefully hand-picked to make the block database as extensive and versatile as possible. Translucent blocks such as different kinds of glass are supported too, optionally.
 
 Currently, its output format is in the form of of `/setblock` commands. There are plans to add more kinds of output formats in the future.
 
 # Installation
+
+## Precompiled Binaries
+
+Binary releases of MCArtist can be found on the [releases page](https://github.com/AwesomeARC/MCArtist/releases).
+
+## Compiling From Source
 
 MCArtist makes use of the Rust build system.
 
