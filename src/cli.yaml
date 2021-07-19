@@ -41,6 +41,11 @@ args:
       long: translucent
       about: Whether translucent blocks should be included
 
+  - aternos:
+      short: a
+      long: aternos
+      about: Whether the output should be in Aternos' consoleStream format
+
   - input:
       about: Path to the image which is to be converted
       required: true

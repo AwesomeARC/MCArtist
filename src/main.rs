@@ -54,16 +54,22 @@ fn main() -> Result<(), Box<dyn Error>> {
         mc_block_matrix, coords, block_list
     );
 
+    let in_aternos_format = matches.is_present("aternos");
+
     if let Some(output_file) = matches.value_of("output") {
 
         printer::print_to_file(
             &command_list,
-            Path::new( output_file )
+            Path::new(output_file),
+            in_aternos_format
         )?;
 
     } else {
 
-        printer::print_to_console(&command_list);
+        printer::print_to_console(
+            &command_list,
+            in_aternos_format
+        );
 
     }
 
