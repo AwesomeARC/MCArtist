@@ -13,7 +13,6 @@ pub fn bake_blocks(textures_dir: &Path, block_db_path: &Path)
 
     texture_entries.sort();
 
-
     let mut block_list = json::parse(r#" [
 
         {
@@ -23,7 +22,8 @@ pub fn bake_blocks(textures_dir: &Path, block_db_path: &Path)
             "name": "air",
             "r": 0,
             "g": 0,
-            "b": 0
+            "b": 0,
+            "a": 0
 
         }
 
