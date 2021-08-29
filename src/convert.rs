@@ -4,17 +4,17 @@ use image::{DynamicImage, GenericImageView};
 
 use crate::commands::{Coords, SetBlock, CommandList};
 
-struct MatchingBlock { id: u8, dev: f32 }
+struct MatchingBlock { id: u16, dev: f32 }
 
 pub fn img_to_mc(img: &DynamicImage, block_list: &JsonValue, translucent: bool)
-    -> Result< Vec<Vec<u8>>, Box<dyn Error> > {
+    -> Result< Vec<Vec<u16>>, Box<dyn Error> > {
 
     let (width, height) = img.dimensions();
 
     let width = width as usize;
     let height = height as usize;
 
-    let mut mc_block_matrix: Vec<Vec<u8>> = vec![vec![0; width]; height];
+    let mut mc_block_matrix: Vec<Vec<u16>> = vec![vec![0; width]; height];
 
     // Calculates deviation of rgb2 from rgb1
     let deviation = | rgb1: (u8, u8, u8), rgb2: (u8, u8, u8) |
@@ -39,7 +39,7 @@ pub fn img_to_mc(img: &DynamicImage, block_list: &JsonValue, translucent: bool)
 
         for block in block_list.members() {
 
-            let id = block["id"].as_u8().unwrap();
+            let id = block["id"].as_u16().unwrap();
 
             // Skip testing with air
             if id == 0 { continue }
@@ -99,7 +99,7 @@ pub fn img_to_mc(img: &DynamicImage, block_list: &JsonValue, translucent: bool)
 }
 
 pub fn blocks_to_commands(
-    mc_block_matrix: Vec<Vec<u8>>,
+    mc_block_matrix: Vec<Vec<u16>>,
     coords: Coords,
     block_list: JsonValue) -> CommandList {
 
